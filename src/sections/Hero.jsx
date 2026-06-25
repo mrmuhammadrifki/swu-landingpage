@@ -5,8 +5,8 @@ export const Hero = () => {
   return (
     <section className="relative pt-24 pb-32 px-margin-mobile md:px-margin-desktop overflow-hidden">
       {/* Abstract Structural Background Elements */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-container/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary-container/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-container/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none animate-glow-1"></div>
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-secondary-container/5 rounded-full blur-[100px] translate-y-1/3 -translate-x-1/4 pointer-events-none animate-glow-2"></div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         {/* Left Content */}
         <div className="lg:col-span-5 lg:col-start-1 space-y-8">
@@ -32,7 +32,7 @@ export const Hero = () => {
           </div>
         </div>
         {/* Right Mockup */}
-        <div className="lg:col-span-6 lg:col-start-7 lg:translate-x-asymmetric-offset relative">
+        <div className="lg:col-span-6 lg:col-start-7 lg:translate-x-asymmetric-offset relative animate-float-dashboard">
           <div className="glass-panel rounded-xl border border-outline-variant/20 p-2 overflow-hidden micro-shadow group relative">
             {/* Faux Browser/Dashboard Window */}
             <div className="bg-surface-container-highest rounded-t-lg px-4 py-3 border-b border-outline-variant/20 flex items-center gap-2">
@@ -51,7 +51,7 @@ export const Hero = () => {
                 <div className="h-4 bg-primary-container/20 rounded-sm w-full mt-12 border border-primary/30"></div>
               </div>
               {/* Main Canvas Area */}
-              <div className="flex-1 p-6 relative">
+              <div className="flex-1 p-6 relative cyber-grid scanline-effect">
                 {/* Background Image representing technical workspace */}
                 <div 
                   className="absolute inset-0 bg-cover bg-center opacity-40 mix-blend-screen" 
@@ -59,18 +59,18 @@ export const Hero = () => {
                   style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCk0iVKa6EXmti7XxwlbFgy84TNp8SM4ex4sUgvD6h4OdXJHvAje36Y_VPtb5bLLR1nn4-8UWF1UACgM9w9PfWkRg34In1HhsEp7vTeiS4O64ENMRy4mcQ3GgjSzhWETNCd2aF2DHxQA8S84TyYxcgkpXFhMQcsDr_GcrDmzChkoYEhxM7AyPyIsLPnw1qqbUc5MDIbPLrg0GlwMxaNe9kSmZPMUH2YTg5l8ZIUi9OGDTvd20bYvN4fXEDz9QCN_MDd4udKYPURVtc-')" }}
                 ></div>
                 {/* Floating Data Elements */}
-                <div className="absolute top-8 right-8 glass-panel p-4 rounded-lg w-48 space-y-3 transform translate-y-4 group-hover:-translate-y-2 transition-transform duration-700">
+                <div className="absolute top-8 right-8 glass-panel p-4 rounded-lg w-48 space-y-3 animate-float-panel-1">
                   <div className="text-[10px] text-on-surface-variant uppercase tracking-wider font-mono">System Load</div>
                   <div className="flex items-end gap-1 h-12">
-                    <div className="w-1/4 bg-primary rounded-t-sm" style={{ height: '40%' }}></div>
-                    <div className="w-1/4 bg-primary rounded-t-sm" style={{ height: '70%' }}></div>
-                    <div className="w-1/4 bg-secondary rounded-t-sm" style={{ height: '100%' }}></div>
-                    <div className="w-1/4 bg-primary rounded-t-sm" style={{ height: '60%' }}></div>
+                    <div className="w-1/4 bg-primary rounded-t-sm animate-bar-1" style={{ height: '40%' }}></div>
+                    <div className="w-1/4 bg-primary rounded-t-sm animate-bar-2" style={{ height: '70%' }}></div>
+                    <div className="w-1/4 bg-secondary rounded-t-sm animate-bar-3" style={{ height: '100%' }}></div>
+                    <div className="w-1/4 bg-primary rounded-t-sm animate-bar-4" style={{ height: '60%' }}></div>
                   </div>
                 </div>
-                <div className="absolute bottom-12 left-8 glass-panel p-4 rounded-lg w-64 transform translate-y-2 group-hover:translate-y-4 transition-transform duration-1000 delay-100">
+                <div className="absolute bottom-12 left-8 glass-panel p-4 rounded-lg w-64 animate-float-panel-2">
                   <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-secondary text-2xl">account_tree</span>
+                    <span className="material-symbols-outlined text-secondary text-2xl animate-spin" style={{ animationDuration: '6s' }}>account_tree</span>
                     <div>
                       <div className="text-[12px] text-on-surface font-semibold font-mono">Neural Net Compiling</div>
                       <div className="text-[10px] text-on-surface-variant">Batch processing... 89%</div>
