@@ -1,5 +1,82 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NeonButton, OutlineButton } from '../components/Button';
+
+const NeuralNetCompiler = () => {
+  const [progress, setProgress] = useState(0);
+  const [status, setStatus] = useState('Initializing...');
+
+  useEffect(() => {
+    let timer;
+    let state = 'compiling'; // 'compiling' -> 'success' -> 'initializing'
+
+    const runSimulation = () => {
+      if (state === 'compiling') {
+        setProgress((prev) => {
+          if (prev >= 100) {
+            state = 'success';
+            setStatus('Compilation Success!');
+            timer = setTimeout(() => {
+              state = 'initializing';
+              setStatus('Initializing next batch...');
+              setProgress(0);
+              timer = setTimeout(() => {
+                state = 'compiling';
+                setStatus('Batch processing...');
+              }, 1500);
+            }, 3000);
+            return 100;
+          }
+          
+          const increment = Math.floor(Math.random() * 12) + 4;
+          const nextVal = Math.min(prev + increment, 100);
+          setStatus(`Batch processing... ${nextVal}%`);
+          return nextVal;
+        });
+        
+        const randomDelay = Math.floor(Math.random() * 400) + 200;
+        timer = setTimeout(runSimulation, randomDelay);
+      } else {
+        timer = setTimeout(runSimulation, 500);
+      }
+    };
+
+    setStatus('Batch processing... 0%');
+    timer = setTimeout(runSimulation, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const isSuccess = progress === 100;
+
+  return (
+    <div className="absolute bottom-12 left-8 glass-panel p-4 rounded-lg w-64 animate-float-panel-2 border border-outline-variant/10">
+      <div className="flex items-center gap-3">
+        <span 
+          className={`material-symbols-outlined text-2xl transition-all duration-300 ${
+            isSuccess ? 'text-green-400 scale-110 animate-pulse' : 'text-secondary animate-spin'
+          }`}
+          style={{ animationDuration: isSuccess ? '1.5s' : '6s' }}
+        >
+          {isSuccess ? 'verified' : 'account_tree'}
+        </span>
+        <div>
+          <div className="text-[12px] text-on-surface font-semibold font-mono">Neural Net Compiling</div>
+          <div className={`text-[10px] transition-colors duration-300 font-mono ${isSuccess ? 'text-green-400 font-bold' : 'text-on-surface-variant'}`}>
+            {status}
+          </div>
+        </div>
+      </div>
+      <div className="w-full bg-surface-container-high h-1 mt-3 rounded-full overflow-hidden">
+        <div 
+          className={`h-full transition-all duration-300 ${
+            isSuccess ? 'bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.5)]' : 'bg-secondary'
+          }`} 
+          style={{ width: `${progress}%` }}
+        ></div>
+      </div>
+    </div>
+  );
+};
 
 export const Hero = () => {
   return (
@@ -69,18 +146,7 @@ export const Hero = () => {
                     <div className="w-1/4 bg-primary rounded-t-sm animate-bar-4" style={{ height: '60%' }}></div>
                   </div>
                 </div>
-                <div className="absolute bottom-12 left-8 glass-panel p-4 rounded-lg w-64 animate-float-panel-2">
-                  <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-secondary text-2xl animate-spin" style={{ animationDuration: '6s' }}>account_tree</span>
-                    <div>
-                      <div className="text-[12px] text-on-surface font-semibold font-mono">Neural Net Compiling</div>
-                      <div className="text-[10px] text-on-surface-variant">Batch processing... 89%</div>
-                    </div>
-                  </div>
-                  <div className="w-full bg-surface-container-high h-1 mt-3 rounded-full overflow-hidden">
-                    <div className="bg-secondary h-full" style={{ width: '89%' }}></div>
-                  </div>
-                </div>
+                <NeuralNetCompiler />
               </div>
             </div>
           </div>
