@@ -49,10 +49,10 @@ const NeuralNetCompiler = () => {
   const isSuccess = progress === 100;
 
   return (
-    <div className="absolute bottom-12 left-8 glass-panel p-4 rounded-lg w-64 animate-float-panel-2 border border-outline-variant/10">
-      <div className="flex items-center gap-3">
+    <div className="absolute bottom-4 left-4 sm:bottom-12 sm:left-8 glass-panel p-3 sm:p-4 rounded-lg w-52 sm:w-64 animate-float-panel-2 border border-outline-variant/10">
+      <div className="flex items-center gap-2 sm:gap-3">
         <span 
-          className={`material-symbols-outlined text-2xl transition-all duration-300 ${
+          className={`material-symbols-outlined text-xl sm:text-2xl transition-all duration-300 ${
             isSuccess ? 'text-green-400 scale-110 animate-pulse' : 'text-secondary animate-spin'
           }`}
           style={{ animationDuration: isSuccess ? '1.5s' : '6s' }}
@@ -60,13 +60,13 @@ const NeuralNetCompiler = () => {
           {isSuccess ? 'verified' : 'account_tree'}
         </span>
         <div>
-          <div className="text-[12px] text-on-surface font-semibold font-mono">Neural Net Compiling</div>
-          <div className={`text-[10px] transition-colors duration-300 font-mono ${isSuccess ? 'text-green-400 font-bold' : 'text-on-surface-variant'}`}>
+          <div className="text-[10px] sm:text-[12px] text-on-surface font-semibold font-mono">Neural Net Compiling</div>
+          <div className={`text-[9px] sm:text-[10px] transition-colors duration-300 font-mono ${isSuccess ? 'text-green-400 font-bold' : 'text-on-surface-variant'}`}>
             {status}
           </div>
         </div>
       </div>
-      <div className="w-full bg-surface-container-high h-1 mt-3 rounded-full overflow-hidden">
+      <div className="w-full bg-surface-container-high h-1 mt-2 sm:mt-3 rounded-full overflow-hidden">
         <div 
           className={`h-full transition-all duration-300 ${
             isSuccess ? 'bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.5)]' : 'bg-secondary'
@@ -137,9 +137,9 @@ export const Hero = () => {
                 ></div>
                 
                 {/* Floating Data Elements */}
-                <div className="absolute top-8 right-8 glass-panel p-4 rounded-lg w-48 space-y-3 animate-float-panel-1">
-                  <div className="text-[10px] text-on-surface-variant uppercase tracking-wider font-mono">System Load</div>
-                  <div className="flex items-end gap-1 h-12">
+                <div className="absolute top-4 right-4 sm:top-8 sm:right-8 glass-panel p-3 sm:p-4 rounded-lg w-40 sm:w-48 space-y-2 sm:space-y-3 animate-float-panel-1">
+                  <div className="text-[9px] sm:text-[10px] text-on-surface-variant uppercase tracking-wider font-mono">System Load</div>
+                  <div className="flex items-end gap-1 h-8 sm:h-12">
                     <div className="w-1/4 bg-primary rounded-t-sm animate-bar-1" style={{ height: '40%' }}></div>
                     <div className="w-1/4 bg-primary rounded-t-sm animate-bar-2" style={{ height: '70%' }}></div>
                     <div className="w-1/4 bg-secondary rounded-t-sm animate-bar-3" style={{ height: '100%' }}></div>
