@@ -58,6 +58,7 @@ export const Hero = () => {
                   data-alt="A highly detailed top-down view of a modern cyber-security and data science monitoring dashboard displayed on a large curved glass monitor. The screen displays complex glowing data nodes, intersecting technical blueprints, and streams of code in a dark mode interface. Accentuated by vibrant neon cyan and deep blue glows against a dark matte background. The aesthetic is ultra-modern, technical, high-performance computing environment with sharp geometric vectors and precise typography." 
                   style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuCk0iVKa6EXmti7XxwlbFgy84TNp8SM4ex4sUgvD6h4OdXJHvAje36Y_VPtb5bLLR1nn4-8UWF1UACgM9w9PfWkRg34In1HhsEp7vTeiS4O64ENMRy4mcQ3GgjSzhWETNCd2aF2DHxQA8S84TyYxcgkpXFhMQcsDr_GcrDmzChkoYEhxM7AyPyIsLPnw1qqbUc5MDIbPLrg0GlwMxaNe9kSmZPMUH2YTg5l8ZIUi9OGDTvd20bYvN4fXEDz9QCN_MDd4udKYPURVtc-')" }}
                 ></div>
+                
                 {/* Floating Data Elements */}
                 <div className="absolute top-8 right-8 glass-panel p-4 rounded-lg w-48 space-y-3 animate-float-panel-1">
                   <div className="text-[10px] text-on-surface-variant uppercase tracking-wider font-mono">System Load</div>

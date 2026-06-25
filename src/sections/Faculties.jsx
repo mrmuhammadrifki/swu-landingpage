@@ -3,10 +3,11 @@ import { faculties } from '../data/faculties';
 
 const FacultyCard = ({ title, tags, curriculumHref, image, imageAlt, translateClass }) => {
   return (
-    <div className={`group relative rounded-xl overflow-hidden bg-surface-container-highest micro-shadow h-[400px] flex flex-col justify-end ${translateClass}`}>
+    <div 
+      className={`group relative rounded-xl overflow-hidden bg-surface-container-highest micro-shadow h-[400px] flex flex-col justify-end transition-all duration-500 border-2 border-transparent hover:border-primary hover:scale-[1.02] ${translateClass}`}
+    >
       <div 
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105 opacity-60" 
-        data-alt={imageAlt}
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 opacity-60 group-hover:scale-105 group-hover:opacity-75"
         style={{ backgroundImage: `url('${image}')` }}
       ></div>
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
@@ -14,7 +15,10 @@ const FacultyCard = ({ title, tags, curriculumHref, image, imageAlt, translateCl
         <h3 className="font-headline-md text-headline-md text-on-surface">{title}</h3>
         <div className="flex flex-wrap gap-2">
           {tags.map((tag, idx) => (
-            <span key={idx} className="px-2 py-1 bg-surface-container/80 rounded-sm font-mono text-[10px] text-primary border border-outline-variant/30">
+            <span 
+              key={idx} 
+              className="px-2 py-1 rounded-sm font-mono text-[10px] border bg-surface-container/80 text-on-surface-variant border-outline-variant/30 group-hover:border-primary/40 group-hover:text-primary transition-colors"
+            >
               {tag}
             </span>
           ))}
@@ -35,9 +39,14 @@ export const Faculties = () => {
           <h2 className="font-headline-md text-headline-md text-on-surface">Academic Faculties</h2>
           <p className="font-body-lg text-body-lg text-on-surface-variant">Engineered curriculums designed to output industry-ready technical specialists and visionary technopreneurs.</p>
         </div>
+        
+        {/* Faculty Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {faculties.map((faculty, idx) => (
-            <FacultyCard key={idx} {...faculty} />
+            <FacultyCard 
+              key={idx} 
+              {...faculty} 
+            />
           ))}
         </div>
       </div>
