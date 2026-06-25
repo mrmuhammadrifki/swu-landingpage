@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container;
+}
+
+.glass-panel {
+    background: rgba(40, 42, 50, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.neon-gradient {
+    background: linear-gradient(135deg, #2563eb 0%, #03b5d3 100%);
+}
+.text-gradient {
+    background: linear-gradient(135deg, #b4c5ff 0%, #4cd7f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.micro-shadow {
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+}
+.hover-lift {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.hover-lift:hover {
+    transform: translateY(-4px);
+    filter: drop-shadow(0 0 12px rgba(37,99,235,0.3));
+}
