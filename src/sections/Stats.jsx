@@ -1,5 +1,6 @@
 import React from 'react';
 import { stats } from '../data/stats';
+import { AnimatedCounter } from '../components/AnimatedCounter';
 
 export const Stats = () => {
   return (
@@ -9,7 +10,7 @@ export const Stats = () => {
           {stats.map((stat, idx) => (
             <div key={idx} className="space-y-2 p-4">
               <div className={`font-headline-lg text-headline-lg font-black ${stat.isAccent ? 'text-secondary' : 'text-gradient'}`}>
-                {stat.value}
+                <AnimatedCounter value={stat.value} />
               </div>
               <div className="font-label-caps text-label-caps text-on-surface-variant">
                 {stat.label}
